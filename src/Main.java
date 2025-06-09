@@ -17,6 +17,7 @@ public class Main {
 
         recommendAppVersion(0, 2014);
         recommendAppVersion(1, 2016);
+
         System.out.println();
         System.out.println("// Task 3");
 
@@ -42,16 +43,23 @@ public class Main {
     public static void recommendAppVersion(int osType, int deviceYear) {
         int currentYear = LocalDate.now().getYear();
 
-        if (osType == 0 && deviceYear < currentYear) {
+        switch  (osType) {
+            case 0:
+                if (deviceYear < currentYear){
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (osType == 0) {
-            System.out.println("Установите обычную версию приложения для iOS по ссылке");
-        } else if (osType == 1 && deviceYear < currentYear) {
-            System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        } else if (osType == 1) {
-            System.out.println("Установите обычную версию приложения для Android по ссылке");
         } else {
-            System.out.println("Неизвестный тип устройства");
+            System.out.println("Установите обычную версию приложения для iOS по ссылке");
+        }
+                break;
+            case 1:
+                if (deviceYear < currentYear){
+                    System.out.println("Установите облегченную версию приложения для Android по ссылке");
+                } else {
+                    System.out.println("Установите обычную версию приложения для Android по ссылке");
+                }
+                break;
+            default:
+               break;
         }
 
 
